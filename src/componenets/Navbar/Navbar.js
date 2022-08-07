@@ -20,7 +20,7 @@ const Navbar = ({ handleSideBar, getSearchedItems }) => {
             SPINSCI
           </h1>
         </div>
-        <div className="border-solid  rounded-lg flex flex-row w-3/6 h-10 items-center bg-white shadow-lg ml-6 lg:ml-0">
+        <div className="rounded-lg flex flex-row w-3/6 h-10 items-center bg-white shadow-lg ml-6 lg:ml-0">
           <input
             type="text"
             value={searchString}
