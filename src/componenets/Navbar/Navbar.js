@@ -3,6 +3,11 @@ import { BsSearch } from "react-icons/bs";
 import { GiHamburgerMenu } from "react-icons/gi";
 const Navbar = ({ handleSideBar, getSearchedItems }) => {
   const [searchString, setSearchString] = useState("");
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      getSearchedItems(searchString);
+    }
+  };
   return (
     <div className="w-100 h-screen/1 lg:h-20 shadow-lg bg-dark-violet header ">
       <div className="container bg-white mx-auto h-full flex flex-row lg:justify-between items-center bg-dark-violet">
@@ -15,13 +20,14 @@ const Navbar = ({ handleSideBar, getSearchedItems }) => {
             SPINSCI
           </h1>
         </div>
-        <div className="border-solid border-2 rounded-lg flex flex-row w-3/6 h-10 items-center bg-white shadow-lg ml-6 lg:ml-0">
+        <div className="border-solid  rounded-lg flex flex-row w-3/6 h-10 items-center bg-white shadow-lg ml-6 lg:ml-0">
           <input
             type="text"
             value={searchString}
             onChange={(e) => setSearchString(e.target.value)}
             className="border-solid border-2 w-9/12 dark-violet lg:w-11/12 h-11 p-2 lg:p-4 rounded-l-lg"
             placeholder="Search products"
+            onKeyDown={handleKeyDown}
           />
           <BsSearch
             className="w-3/12 lg:w-1/12 h-4 dark-violet"
